@@ -1,9 +1,9 @@
 import type { ServiceDescriptor } from './types';
 
 export const SERVICES: ServiceDescriptor[] = [
-  { id: 'inventory', label: 'Inventario', short: 'INV', kanji: '在庫', color: '#8f7bb8' },
-  { id: 'orders', label: 'Pedidos', short: 'ORD', kanji: '注文', color: '#a98fc9' },
-  { id: 'payments', label: 'Pagos', short: 'PAY', kanji: '決済', color: '#c08fa6' },
+  { id: 'inventory', label: 'Inventario', short: 'INV', kanji: '在庫', color: '#e8a9b8' },
+  { id: 'orders', label: 'Pedidos', short: 'ORD', kanji: '注文', color: '#c9b3e0' },
+  { id: 'payments', label: 'Pagos', short: 'PAY', kanji: '決済', color: '#e0b37a' },
 ];
 
 export const SERVICE_LABELS: Record<string, string> = {

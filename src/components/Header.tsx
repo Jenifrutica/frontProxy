@@ -29,6 +29,12 @@ export function Header({ lastUpdated, running, report, onSimulate }: HeaderProps
           <span className="hero__script">observa</span>
           <h1>MIRU</h1>
           <span className="hero__serif">en vivo.</span>
+          <span className="hero__sticker hero__sticker--zero" aria-hidden="true">
+            00
+          </span>
+          <span className="hero__sticker hero__sticker--script" aria-hidden="true">
+            be patient
+          </span>
         </div>
 
         <p className="hero__sub">Auditoría de microservicios · polling cada 3 s</p>
