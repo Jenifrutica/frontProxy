@@ -9,6 +9,8 @@ services:
     domains:
       - proxy.jenilarper.dev
     envVars:
+      - key: NODE_VERSION
+        value: "20"
       - key: VITE_INVENTORY_URL
         value: https://jenilarper-proxy-inventory.onrender.com
       - key: VITE_ORDERS_URL
