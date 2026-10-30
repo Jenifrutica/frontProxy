@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: jenilarper-proxy-front
+    runtime: static
+    branch: main
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    autoDeployTrigger: commit
+    domains:
+      - proxy.jenilarper.dev
+    envVars:
+      - key: VITE_INVENTORY_URL
+        value: https://jenilarper-proxy-inventory.onrender.com
+      - key: VITE_ORDERS_URL
+        value: https://jenilarper-proxy-orders.onrender.com
+      - key: VITE_PAYMENTS_URL
+        value: https://jenilarper-proxy-payments.onrender.com
+      - key: VITE_AUDIT_URL
+        value: https://jenilarper-proxy-audit.onrender.com
