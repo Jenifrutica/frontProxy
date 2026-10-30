@@ -1,3 +1,4 @@
+import { Flower } from './Flower';
 import type { LoadSimulationReport } from '../types';
 
 interface HeaderProps {
@@ -16,22 +17,23 @@ export function Header({ lastUpdated, running, report, onSimulate }: HeaderProps
   return (
     <header className="hero">
       <div className="hero__top">
-        <span className="hero__kicker">観測 · 監査 · リアルタイム</span>
+        <span className="hero__brandline">MIRU / OBSERVABILIDAD</span>
+        <span className="hero__meta">3 SERVICIOS · 3 PROXIES · 1 HUB</span>
         <span className="hero__date">{dateLabel}</span>
       </div>
 
-      <div className="hero__main">
-        <div className="hero__brand">
-          <span className="hero__seal" aria-hidden="true">
-            観
-          </span>
-          <div>
-            <h1 className="hero__title">MIRU</h1>
-            <p className="hero__subtitle">Observabilidad de microservicios</p>
-          </div>
+      <div className="hero__stage">
+        <Flower className="hero__flower" />
+
+        <div className="hero__title">
+          <span className="hero__script">observa</span>
+          <h1>MIRU</h1>
+          <span className="hero__serif">en vivo.</span>
         </div>
 
-        <div className="hero__status">
+        <p className="hero__sub">Auditoría de microservicios · polling cada 3 s</p>
+
+        <div className="hero__actions">
           <span className="live">
             <span className="live__dot" />
             EN VIVO
@@ -40,9 +42,6 @@ export function Header({ lastUpdated, running, report, onSimulate }: HeaderProps
             última actualización{' '}
             {lastUpdated ? lastUpdated.toLocaleTimeString('es-CO', { hour12: false }) : '—'}
           </span>
-        </div>
-
-        <div className="hero__actions">
           {report && (
             <span className="simulation-report">
               {report.generated} generadas · {report.succeeded} OK
@@ -56,16 +55,12 @@ export function Header({ lastUpdated, running, report, onSimulate }: HeaderProps
         </div>
       </div>
 
-      <div className="hero__meta">
-        <span>3 SERVICIOS</span>
-        <span>3 PROXIES</span>
-        <span>1 HUB</span>
-        <span>POLLING 3 S</span>
-      </div>
-
-      <span className="hero__watermark" aria-hidden="true">
-        観
-      </span>
+      <nav className="hero__nav" aria-label="Secciones del panel">
+        <a href="#resumen">Resumen</a>
+        <a href="#topologia">Topología</a>
+        <a href="#latencia">Latencia</a>
+        <a href="#registro">Registro</a>
+      </nav>
     </header>
   );
 }

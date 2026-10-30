@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import { DEGRADED_THRESHOLD } from '../config';
 import { useCountUp } from '../hooks/useCountUp';
 import type { InterceptionRecord, ServiceDescriptor, ServiceHealth } from '../types';
+import { Flower } from './Flower';
 
 interface ServiceCardProps {
   service: ServiceDescriptor;
@@ -62,9 +63,7 @@ export function ServiceCard({ service, health, records, active, onSelect }: Serv
       onClick={() => onSelect(service.id)}
       aria-pressed={active}
     >
-      <span className="service-card__kanji" aria-hidden="true">
-        {service.kanji}
-      </span>
+      <Flower className="service-card__flower" />
 
       <div className="service-card__head">
         <div className="service-card__identity">

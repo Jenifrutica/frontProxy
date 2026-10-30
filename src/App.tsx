@@ -7,6 +7,7 @@ import { LatencyChart } from './components/LatencyChart';
 import { LogFilters } from './components/LogFilters';
 import { LogTable } from './components/LogTable';
 import { SectionHead } from './components/SectionHead';
+import { Flower } from './components/Flower';
 import { usePolling } from './hooks/usePolling';
 import { PAGE_SIZE, POLL_INTERVAL_MS, SERVICES } from './config';
 import type { LoadSimulationReport, ServiceFilter, StatusFilter } from './types';
@@ -94,7 +95,17 @@ export default function App() {
   };
 
   return (
-    <div className="shell">
+    <>
+      <div className="decor" aria-hidden="true">
+        <Flower className="petal petal--1" />
+        <Flower className="petal petal--2" />
+        <Flower className="petal petal--3" />
+        <Flower className="petal petal--4" />
+        <span className="sparkle sparkle--1">✦</span>
+        <span className="sparkle sparkle--2">✦</span>
+      </div>
+
+      <div className="shell">
         <Header
           lastUpdated={summary.lastUpdated}
           running={running}
@@ -116,6 +127,7 @@ export default function App() {
         )}
 
         <SectionHead
+          id="resumen"
           index="01"
           title="Resumen por servicio"
           hint="tres microservicios · tres proxies"
@@ -134,6 +146,7 @@ export default function App() {
         </section>
 
         <SectionHead
+          id="topologia"
           index="02"
           title="Topología en vivo"
           hint="cada pulso es una llamada interceptada"
@@ -149,6 +162,7 @@ export default function App() {
         </section>
 
         <SectionHead
+          id="latencia"
           index="03"
           title="Latencia por servicio"
           hint="últimas 20 llamadas"
@@ -164,6 +178,7 @@ export default function App() {
         </section>
 
         <SectionHead
+          id="registro"
           index="04"
           title="Registro de auditoría"
           hint="cada fila es una intercepción del LoggingProxy"
@@ -230,5 +245,6 @@ export default function App() {
           </span>
         </footer>
       </div>
+    </>
   );
 }

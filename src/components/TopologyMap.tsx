@@ -1,5 +1,6 @@
 import { DEGRADED_THRESHOLD, SERVICE_LABELS, SERVICES } from '../config';
 import type { InterceptionRecord, ServiceHealth } from '../types';
+import { Flower } from './Flower';
 
 interface TopologyMapProps {
   healthByService: Map<string, ServiceHealth>;
@@ -30,6 +31,7 @@ export function TopologyMap({ healthByService, lastEvent, activeService, onSelec
 
   return (
     <div className="topology-wrap">
+      <Flower className="topology__flower" />
       <svg
         className="topology"
         viewBox="0 0 900 280"
